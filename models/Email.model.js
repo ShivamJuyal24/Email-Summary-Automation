@@ -1,18 +1,19 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
 const emailSchema = new mongoose.Schema({
     messageId: {
         type: String,
-        unique: true
+        unique: true,
+        required: true // Added required for safety
     },
-    from:{
+    from: {
         type: String,
         required: true
     },
-    subject:{
-        type:String
+    subject: {
+        type: String
     },
-    body:{
+    body: {
         type: String
     },
     receivedAt: {
@@ -20,8 +21,14 @@ const emailSchema = new mongoose.Schema({
         required: true
     },
     summarized: {
-        type:Boolean,
+        type: Boolean,
         default: false
+    },
+    // Optional: Add priority if you want to highlight important emails
+    priority: {
+        type: String,
+        enum: ["low", "medium", "high"],
+        default: "medium"
     }
 });
 

@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const summarySchema = new mongoose.Schema({
-    email:{
+    email: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Email",
         required: true
@@ -16,4 +16,4 @@ const summarySchema = new mongoose.Schema({
     }
 });
 
-export default mongoose.model("Summary", summarySchema)
+export default mongoose.model("Summary", summarySchema);
